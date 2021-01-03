@@ -1,7 +1,7 @@
 import { html, render, useState } from './preact.js';
 import initService from './init-service.js';
 
-const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
+const Control = ({ children, value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
   const value = _val || 0;
   const increment = Number(_inc) || 1;
   const max = Number(_max) || Infinity;
@@ -23,7 +23,7 @@ const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue:
 
   return html`
     <div class="line grid-row">
-      <span>${title}: </span>
+      <span>${children}</span>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <button onclick=${onLess}>${'<'}</button>
       <button onclick=${onMore}>${'>'}</button>
@@ -63,25 +63,25 @@ const App = () => {
     <h1>🎲🎲🎲🎲🎲</h1>
 
     <h2>Upper Section</h2>
-    <${Control} title="Ones (add up all ⚀ dice)" maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
-    <${Control} title="Twos (add up all ⚁ dice)" maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos} />
-    <${Control} title="Threes (add up all ⚂ dice)" maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes} />
-    <${Control} title="Fours (add up all ⚃ dice)" maxValue=${5 * 4} incrementValue=4 setValue=${setFours} value=${fours} />
-    <${Control} title="Fives (add up all ⚄ dice)" maxValue=${5 * 5} incrementValue=5 setValue=${setFives} value=${fives} />
-    <${Control} title="Sixes (add up all ⚅ dice)" maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes} />
+    <${Control} maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones}>Ones (add up all ⚀ dice)<//>
+    <${Control} maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos}>Twos (add up all ⚁ dice)<//>
+    <${Control} maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes}>Threes (add up all ⚂ dice)<//>
+    <${Control} maxValue=${5 * 4} incrementValue=4 setValue=${setFours} value=${fours}>Fours (add up all ⚃ dice)<//>
+    <${Control} maxValue=${5 * 5} incrementValue=5 setValue=${setFives} value=${fives}>Fives (add up all ⚄ dice)<//>
+    <${Control} maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes}>Sixes (add up all ⚅ dice)<//>
 
     <${Sum} value=${upperTotal}>Upper section total<//>
     <${Sum} value=${upperBonus}>Bonus for a score of 63 or more<//>
 
     <h2>Lower section</h2>
-    <${Control} title="Three of a kind (add up all dice)" maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind} />
-    <${Control} title="Four of a kind (add up all dice)" maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind} />
-    <${Control} title="Full house (two or one and three of another)" maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse} />
-    <${Control} title="Small straight (four numbers in a row)" maxValue=${30} incrementValue=30 setValue=${setSmall} value=${small} />
-    <${Control} title="Large straight (five numbers in a row)" maxValue=${40} incrementValue=40 setValue=${setLarge} value=${large} />
-    <${Control} title="Five of a kind" maxValue=${50} incrementValue=50 setValue=${setFiveKind} value=${fiveKind} />
-    <${Control} title="Bonus five of a kind" maxValue=${300} incrementValue=100 setValue=${setFiveBonus} value=${fiveBonus} />
-    <${Control} title="Chance" maxValue=${5 * 6} incrementValue=1 setValue=${setChance} value=${chance} />
+    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind}>Three of a kind (add up all dice)<//>
+    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind}>Four of a kind (add up all dice)<//>
+    <${Control} maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse}>Full house (two or one and three of another)<//>
+    <${Control} maxValue=${30} incrementValue=30 setValue=${setSmall} value=${small}>Small straight (four numbers in a row)<//>
+    <${Control} maxValue=${40} incrementValue=40 setValue=${setLarge} value=${large}>Large straight (five numbers in a row)<//>
+    <${Control} maxValue=${50} incrementValue=50 setValue=${setFiveKind} value=${fiveKind}>Five of a kind<//>
+    <${Control} maxValue=${300} incrementValue=100 setValue=${setFiveBonus} value=${fiveBonus}>Bonus five of a kind<//>
+    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setChance} value=${chance}>Chance<//>
 
     <${Sum} value=${lowerTotal}>Lower section total<//>
     <p>
