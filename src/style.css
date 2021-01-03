@@ -36,7 +36,7 @@ h1 {
 
 .grid-row {
   display: grid;
-  grid-template-columns: auto 50px 50px 50px 50px 50px;
+  grid-template-columns: auto 8rem 50px 50px 50px 50px 50px;
   grid-gap: 10px;
 }
 
