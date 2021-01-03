@@ -20,9 +20,8 @@ const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue:
     }
   };
 
-  const onZero = () => {
-    setValue(0);
-  };
+  const onZero = () => setValue(0);
+  const onClear = () => setValue(null);
 
   return html`
     <div>
@@ -31,6 +30,7 @@ const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue:
     <button onclick=${onLess}>${'<'}</button>
     <button onclick=${onMore}>${'>'}</button>
     <button onclick=${onZero}>0</button>
+    <button onclick=${onClear}>Clear</button>
     </div>
   `;
 };
