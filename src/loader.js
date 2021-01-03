@@ -71,7 +71,7 @@ const App = () => {
     <${Control} title=Sixes maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes} />
 
     <${Sum} value=${upperTotal}>Upper section total<//>
-    <${Sum} value=${upperBonus}>Upper section bonus (for a score of 63 or more)<//>
+    <${Sum} value=${upperBonus}>Bonus for a score of 63 or more<//>
 
     <h2>Lower section</h2>
     <${Control} title="Three of a kind" maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind} />
