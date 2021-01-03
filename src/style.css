@@ -30,11 +30,14 @@ h1 {
   text-align: center;
 }
 
+.line {
+  margin: 8px 0;
+}
+
 .grid-row {
   display: grid;
   grid-template-columns: auto 50px 50px 50px 50px 50px;
   grid-gap: 10px;
-  margin: 5px 0;
 }
 
 .grid-sum {

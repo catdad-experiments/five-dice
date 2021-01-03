@@ -22,7 +22,7 @@ const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue:
   const onClear = () => setValue(null);
 
   return html`
-    <div class=grid-row>
+    <div class="line grid-row">
       <span>${title}: </span>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <button onclick=${onLess}>${'<'}</button>
@@ -34,7 +34,7 @@ const Control = ({ title, value: _val, setValue, maxValue: _max, incrementValue:
 };
 
 const Sum = ({ children, value }) => html`
-  <div class=grid-sum><span>${children}:</span> <span class=sum-value>${value}</span></div>
+  <div class="line grid-sum"><span>${children}:</span> <span class=sum-value>${value}</span></div>
 `;
 
 const App = () => {
