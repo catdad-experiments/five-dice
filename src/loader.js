@@ -119,6 +119,7 @@ const App = () => {
     <//>
     <${Control} maxValue=${300} incrementValue=100 setValue=${setFiveBonus} value=${fiveBonus}>
       <span>Bonus five of a kind</span>
+      <span>100 points each, up to 3</span>
     <//>
     <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setChance} value=${chance}>
       <span>Chance</span>
