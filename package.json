@@ -1,0 +1,22 @@
+{
+  "name": "five-dice",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catdad-experiments/five-dice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catdad-experiments/five-dice/issues"
+  },
+  "homepage": "https://github.com/catdad-experiments/five-dice#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
