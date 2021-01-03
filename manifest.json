@@ -1,0 +1,14 @@
+{
+  "short_name": "Five Dice",
+  "name": "Five Dice Scoresheet",
+  "description": "An autmated scoresheet for a five dice roll game",
+  "start_url": "./",
+  "icons": [{
+    "src": "assets/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#202124",
+  "display": "standalone",
+  "theme_color": "#202124"
+}

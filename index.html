@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Five Dice</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#202124">
+  <link rel="icon" type="image/png" href="assets/icon-512.png" />
+
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+</head>
+<body>
+  <div id="unsupported" class="unsupported limit">
+    <p>This browser is not supported.</p>
+    <p>See the <a href="https://github.com/catdad-experiments/five-dice">GitHub page</a> for more info.</p>
+  </div>
+
+  <div id="main" class="main limit hide"></div>
+
+  <script type="module">
+    document.querySelector('#unsupported').remove();
+    document.querySelector('#main').classList.remove('hide');
+  </script>
+  <script type="module" async>
+    import loader from './src/loader.js';
+    loader();
+  </script>
+  <script async src="/analytics.js"></script>
+</body>
+</html>
