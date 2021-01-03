@@ -57,7 +57,8 @@ const App = () => {
   const grandTotal = upperTotal + upperBonus + lowerTotal;
 
   return html`
-    <div>Upper Section</div>
+    <p>🎲🎲🎲🎲🎲</p>
+    <div><b>Upper Section</b></div>
     <${Control} title=Ones maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
     <${Control} title=Twos maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos} />
     <${Control} title=Threes maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes} />
@@ -66,6 +67,7 @@ const App = () => {
     <${Control} title=Sixes maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes} />
     <div>Upper section total: ${upperTotal}</div>
     <div>Upper section bonus (for a score of 63 or more): ${upperBonus}</div>
+    <div><b>Lower section:</b></div>
     <${Control} title="Three of a kind" maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind} />
     <${Control} title="Four of a kind" maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind} />
     <${Control} title="Full house" maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse} />
