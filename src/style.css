@@ -1,7 +1,40 @@
+:root {
+  --darkest: #202124;
+  --dark: #27292b;
+  --middle: #777777;
+  --light: #e5e5e5;
+  --lightest: #f0f0f0;
+  --accent: #e2a316;
+
+  --DARK-background: var(--darkest);
+  --DARK-foreground: var(--light);
+}
+
+body {
+  --background: var(--DARK-background);
+  --foreground: var(--DARK-foreground);
+}
+
+html, body {
+  margin: 0 auto;
+  padding: 0;
+  background: var(--background);
+
+  font-family: sans-serif;
+  color: var(--foreground);
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+h1 {
+  text-align: center;
+}
+
 .grid-row {
   display: grid;
   grid-template-columns: auto 50px 50px 50px 50px 50px;
   grid-gap: 10px;
+  margin: 5px 0;
 }
 
 .grid-sum {
@@ -16,8 +49,4 @@
 
 .value {
   text-align: end;
-}
-
-h1 {
-  text-align: center;
 }
