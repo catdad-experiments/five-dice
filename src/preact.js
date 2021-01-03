@@ -1,5 +1,3 @@
-import { h, render } from 'https://cdn.jsdelivr.net/npm/preact@10.4.0/dist/preact.module.js';
-import htm from 'https://cdn.jsdelivr.net/npm/htm@3.0.4/dist/htm.module.js';
-const html = htm.bind(h);
+import { html, render, useState } from 'https://cdn.jsdelivr.net/npm/htm@3.0.4/preact/standalone.module.js';
 
-export { html, render };
+export { html, render, useState };
