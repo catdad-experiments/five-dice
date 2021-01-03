@@ -63,22 +63,22 @@ const App = () => {
     <h1>🎲🎲🎲🎲🎲</h1>
 
     <h2>Upper Section</h2>
-    <${Control} title=Ones maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
-    <${Control} title=Twos maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos} />
-    <${Control} title=Threes maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes} />
-    <${Control} title=Fours maxValue=${5 * 4} incrementValue=4 setValue=${setFours} value=${fours} />
-    <${Control} title=Fives maxValue=${5 * 5} incrementValue=5 setValue=${setFives} value=${fives} />
-    <${Control} title=Sixes maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes} />
+    <${Control} title="Ones (add up all ⚀ dice)" maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
+    <${Control} title="Twos (add up all ⚁ dice)" maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos} />
+    <${Control} title="Threes (add up all ⚂ dice)" maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes} />
+    <${Control} title="Fours (add up all ⚃ dice)" maxValue=${5 * 4} incrementValue=4 setValue=${setFours} value=${fours} />
+    <${Control} title="Fives (add up all ⚄ dice)" maxValue=${5 * 5} incrementValue=5 setValue=${setFives} value=${fives} />
+    <${Control} title="Sixes (add up all ⚅ dice)" maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes} />
 
     <${Sum} value=${upperTotal}>Upper section total<//>
     <${Sum} value=${upperBonus}>Bonus for a score of 63 or more<//>
 
     <h2>Lower section</h2>
-    <${Control} title="Three of a kind" maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind} />
-    <${Control} title="Four of a kind" maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind} />
-    <${Control} title="Full house" maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse} />
-    <${Control} title="Small straight" maxValue=${30} incrementValue=30 setValue=${setSmall} value=${small} />
-    <${Control} title="Large straight" maxValue=${40} incrementValue=40 setValue=${setLarge} value=${large} />
+    <${Control} title="Three of a kind (add up all dice)" maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind} />
+    <${Control} title="Four of a kind (add up all dice)" maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind} />
+    <${Control} title="Full house (two or one and three of another)" maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse} />
+    <${Control} title="Small straight (four numbers in a row)" maxValue=${30} incrementValue=30 setValue=${setSmall} value=${small} />
+    <${Control} title="Large straight (five numbers in a row)" maxValue=${40} incrementValue=40 setValue=${setLarge} value=${large} />
     <${Control} title="Five of a kind" maxValue=${50} incrementValue=50 setValue=${setFiveKind} value=${fiveKind} />
     <${Control} title="Bonus five of a kind" maxValue=${300} incrementValue=100 setValue=${setFiveBonus} value=${fiveBonus} />
     <${Control} title="Chance" maxValue=${5 * 6} incrementValue=1 setValue=${setChance} value=${chance} />
