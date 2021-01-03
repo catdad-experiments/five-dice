@@ -85,7 +85,7 @@ const App = () => {
 
     <${Sum} value=${lowerTotal}>Lower section total<//>
     <p>
-      <${Sum} value=${grandTotal}>Grand total<//>
+      <${Sum} value=${grandTotal}><b>Grand total</b><//>
     </p>
   `;
 };
