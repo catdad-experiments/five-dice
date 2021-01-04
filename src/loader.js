@@ -122,7 +122,8 @@ const App = () => {
       title: 'Bonus five of a kind', worth: '100 each, up to 3'
     }} />
     <${Control} ...${{
-      maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance
+      maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance,
+      title: 'Chance', worth: 'add up all dice'
     }} />
 
     <${Sum} value=${lowerTotal}>Lower section total<//>
