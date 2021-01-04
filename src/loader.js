@@ -103,15 +103,15 @@ const App = () => {
     }} />
     <${Control} ...${{
       maxValue: 25, incrementValue: 25, setValue: setFullHouse, value: fullHouse,
-      title: 'Full house (two or one and three of another)', worth: '25'
+      title: 'Full house (2 of one, 3 of another)', worth: '25'
     }} />
     <${Control} ...${{
       maxValue: 30, incrementValue: 30, setValue: setSmall, value: small,
-      title: 'Small straight (four numbers in a row)', worth: '30'
+      title: 'Small straight (4 in a row)', worth: '30'
     }} />
     <${Control} ...${{
       maxValue: 40, incrementValue: 40, setValue: setLarge, value: large,
-      title: 'Large straight (five numbers in a row)', worth: '40'
+      title: 'Large straight (5 in a row)', worth: '40'
     }} />
     <${Control} ...${{
       maxValue: 50, incrementValue: 50, setValue: setFiveKind, value: fiveKind,
@@ -119,7 +119,7 @@ const App = () => {
     }} />
     <${Control} ...${{
       maxValue: 300, incrementValue: 100, setValue: setFiveBonus, value: fiveBonus,
-      title: 'Bonus five of a kind', worth: '100 points each, up to 3'
+      title: 'Bonus five of a kind', worth: '100 each, up to 3'
     }} />
     <${Control} ...${{
       maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance
