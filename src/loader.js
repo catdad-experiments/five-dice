@@ -1,7 +1,7 @@
 import { html, render, useState } from './preact.js';
 import initService from './init-service.js';
 
-const Control = ({ children: [title, worth], value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
+const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
   const value = _val || 0;
   const increment = Number(_inc) || 1;
   const max = Number(_max) || Infinity;
@@ -64,67 +64,66 @@ const App = () => {
     <h1>🎲🎲🎲🎲🎲</h1>
 
     <h2>Upper Section</h2>
-    <${Control} maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones}>
-      <span>Ones</span>
-      <span>add up all ⚀ dice</span>
-    <//>
-    <${Control} maxValue=${5 * 2} incrementValue=2 setValue=${setTwos} value=${twos}>
-      <span>Twos</span>
-      <span>add up all ⚁ dice</span>
-    <//>
-    <${Control} maxValue=${5 * 3} incrementValue=3 setValue=${setThrees} value=${threes}>
-      <span>Threes</span>
-      <span>add up all ⚂ dice</span>
-    <//>
-    <${Control} maxValue=${5 * 4} incrementValue=4 setValue=${setFours} value=${fours}>
-      <span>Fours</span>
-      <span>add up all ⚃ dice</span>
-    <//>
-    <${Control} maxValue=${5 * 5} incrementValue=5 setValue=${setFives} value=${fives}>
-      <span>Fives</span>
-      <span>add up all ⚄ dice</span>
-    <//>
-    <${Control} maxValue=${5 * 6} incrementValue=6 setValue=${setSixes} value=${sixes}>
-      <span>Sixes</span>
-      <span>add up all ⚅ dice</span>
-    <//>
+    <${Control} ...${{
+      maxValue: 5 * 1, incrementValue: 1, value: ones, setValue: setOnes,
+      title: 'Ones', worth: 'add up all ⚀ dice'
+    }}maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
+    <${Control} ...${{
+      maxValue: 5 * 2, incrementValue: 2, value: twos, setValue: setTwos,
+      title: 'Twos', worth: 'add up all ⚁ dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 3, incrementValue: 3, value: threes, setValue: setThrees,
+      title: 'Threes', worth: 'add up all ⚂ dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 4, incrementValue: 4, value: fours, setValue: setFours,
+      title: 'Fours', worth: 'add up all ⚃ dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 5, incrementValue: 5, value: fives, setValue: setFives,
+      title: 'Fives', worth: 'add up all ⚄ dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 6, incrementValue: 6, value: sixes, setValue: setSixes,
+      title: 'Sixes', worth: 'add up all ⚅ dice'
+    }} />
 
     <${Sum} value=${upperTotal}>Upper section total<//>
     <${Sum} value=${upperBonus}>Bonus for a score of 63 or more<//>
 
     <h2>Lower section</h2>
-    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setThreeKind} value=${threeKind}>
-      <span>Three of a kind</span>
-      <span>add up all dice</span>
-    <//>
-    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setFourKind} value=${fourKind}>
-      <span>Four of a kind</span>
-      <span>add up all dice</span>
-    <//>
-    <${Control} maxValue=${25} incrementValue=25 setValue=${setFullHouse} value=${fullHouse}>
-      <span>Full house (two or one and three of another)</span>
-      <span>25</span>
-    <//>
-    <${Control} maxValue=${30} incrementValue=30 setValue=${setSmall} value=${small}>
-      <span>Small straight (four numbers in a row)</span>
-      <span>30</span>
-    <//>
-    <${Control} maxValue=${40} incrementValue=40 setValue=${setLarge} value=${large}>
-      <span>Large straight (five numbers in a row)</span>
-      <span>40</span>
-    <//>
-    <${Control} maxValue=${50} incrementValue=50 setValue=${setFiveKind} value=${fiveKind}>
-      <span>Five of a kind</span>
-      <span>50</span>
-    <//>
-    <${Control} maxValue=${300} incrementValue=100 setValue=${setFiveBonus} value=${fiveBonus}>
-      <span>Bonus five of a kind</span>
-      <span>100 points each, up to 3</span>
-    <//>
-    <${Control} maxValue=${5 * 6} incrementValue=1 setValue=${setChance} value=${chance}>
-      <span>Chance</span>
-      <span>add up all dice</span>
-    <//>
+    <${Control} ...${{
+      maxValue: 5 * 6, incrementValue: 1, setValue: setThreeKind, value: threeKind,
+      title: 'Three of a kind', worth: 'add up all dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 6, incrementValue: 1, setValue: setFourKind, value: fourKind,
+      title: 'Four of a kind', worth: 'add up all dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 25, incrementValue: 25, setValue: setFullHouse, value: fullHouse,
+      title: 'Full house (two or one and three of another)', worth: '25'
+    }} />
+    <${Control} ...${{
+      maxValue: 30, incrementValue: 30, setValue: setSmall, value: small,
+      title: 'Small straight (four numbers in a row)', worth: '30'
+    }} />
+    <${Control} ...${{
+      maxValue: 40, incrementValue: 40, setValue: setLarge, value: large,
+      title: 'Large straight (five numbers in a row)', worth: '40'
+    }} />
+    <${Control} ...${{
+      maxValue: 50, incrementValue: 50, setValue: setFiveKind, value: fiveKind,
+      title: 'Five of a kind', worth: '50'
+    }} />
+    <${Control} ...${{
+      maxValue: 300, incrementValue: 100, setValue: setFiveBonus, value: fiveBonus,
+      title: 'Bonus five of a kind', worth: '100 points each, up to 3'
+    }} />
+    <${Control} ...${{
+      maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance
+    }} />
 
     <${Sum} value=${lowerTotal}>Lower section total<//>
     <p>
