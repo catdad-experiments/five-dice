@@ -23,8 +23,10 @@ const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incremen
 
   return html`
     <div class="line grid-row">
-      <span>${title}</span>
-      <span>${worth || ' '}</span>
+      <span class=info>
+        <span class=title>${title}</span>
+        <span class=worth>${worth || ' '}</span>
+      </span>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <button onclick=${onLess}>${'<'}</button>
       <button onclick=${onMore}>${'>'}</button>
