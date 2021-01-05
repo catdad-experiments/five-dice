@@ -26,6 +26,10 @@ html, body {
   max-width: 700px;
 }
 
+body {
+  padding: 0 0.8rem;
+}
+
 h1 {
   text-align: center;
 }
@@ -35,8 +39,9 @@ h1 {
 }
 
 .grid-row {
+  --size: 45px;
   display: grid;
-  grid-template-columns: auto 8rem 50px 50px 50px 50px 50px;
+  grid-template-columns: auto var(--size) var(--size) var(--size) var(--size) var(--size);
   grid-gap: 10px;
 }
 
@@ -46,10 +51,38 @@ h1 {
   grid-gap: 10px;
 }
 
+.info .title,
+.info .worth {
+  display: block;
+  line-height: 1.1;
+}
+
+.info .worth {
+  opacity: 0.5;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .info .title,
+  .info .worth {
+    display: inline;
+    line-height: 1.2;
+  }
+
+  .info .worth {
+    float: right;
+  }
+}
+
 .sum-value {
   text-align: center;
 }
 
 .value {
   text-align: end;
+}
+
+.line button {
+  height: 1.5rem;
 }
