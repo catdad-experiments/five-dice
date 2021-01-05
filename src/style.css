@@ -27,7 +27,7 @@ html, body {
 }
 
 body {
-  padding: 0 1rem;
+  padding: 0 0.8rem;
 }
 
 h1 {
@@ -57,21 +57,17 @@ h1 {
   line-height: 1.1;
 }
 
-.info .title {
-  font-weight: bold;
-}
-
 .info .worth {
-  opacity: 0.8;
-  font-size: 0.9rem;
-  margin-left: 1rem;
+  opacity: 0.5;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
 }
 
 @media only screen and (min-width: 600px) {
   .info .title,
   .info .worth {
     display: inline;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
   .info .worth {
