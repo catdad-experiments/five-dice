@@ -36,6 +36,29 @@ const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incremen
   `;
 };
 
+const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul }) => {
+  const multiplier = Number(_mul) || 1;
+
+  return html`
+    <div class="line grid-row-count">
+      <span class=info>
+        <span class=title>${title}</span>
+        <span class=worth>${worth || ' '}</span>
+      </span>
+      <span class=buttons>
+        <span class=value> ${_val === null ? '__' : _val} </span>
+        <button onclick=${() => setValue(1 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(2 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(3 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(4 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(5 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(0)}>⭕</button>
+        <button onclick=${() => setValue(null)}>❌</button>
+      </span>
+    </div>
+  `;
+};
+
 const Sum = ({ children, value }) => html`
   <div class="line grid-sum"><span>${children}:</span> <span class=sum-value>${value}</span></div>
 `;
@@ -66,28 +89,28 @@ const App = () => {
     <h1>🎲🎲🎲🎲🎲</h1>
 
     <h2>Upper Section</h2>
-    <${Control} ...${{
-      maxValue: 5 * 1, incrementValue: 1, value: ones, setValue: setOnes,
+    <${CountControl} ...${{
+      multiplier: 1, value: ones, setValue: setOnes,
       title: 'Ones', worth: 'add up all ⚀ dice'
     }}maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
-    <${Control} ...${{
-      maxValue: 5 * 2, incrementValue: 2, value: twos, setValue: setTwos,
+    <${CountControl} ...${{
+      multiplier: 2, value: twos, setValue: setTwos,
       title: 'Twos', worth: 'add up all ⚁ dice'
     }} />
-    <${Control} ...${{
-      maxValue: 5 * 3, incrementValue: 3, value: threes, setValue: setThrees,
+    <${CountControl} ...${{
+      multiplier: 3, value: threes, setValue: setThrees,
       title: 'Threes', worth: 'add up all ⚂ dice'
     }} />
-    <${Control} ...${{
-      maxValue: 5 * 4, incrementValue: 4, value: fours, setValue: setFours,
+    <${CountControl} ...${{
+      multiplier: 4, value: fours, setValue: setFours,
       title: 'Fours', worth: 'add up all ⚃ dice'
     }} />
-    <${Control} ...${{
-      maxValue: 5 * 5, incrementValue: 5, value: fives, setValue: setFives,
+    <${CountControl} ...${{
+      multiplier: 5, value: fives, setValue: setFives,
       title: 'Fives', worth: 'add up all ⚄ dice'
     }} />
-    <${Control} ...${{
-      maxValue: 5 * 6, incrementValue: 6, value: sixes, setValue: setSixes,
+    <${CountControl} ...${{
+      multiplier: 6, value: sixes, setValue: setSixes,
       title: 'Sixes', worth: 'add up all ⚅ dice'
     }} />
 
@@ -120,12 +143,12 @@ const App = () => {
       title: 'Five of a kind', worth: '50'
     }} />
     <${Control} ...${{
-      maxValue: 300, incrementValue: 100, setValue: setFiveBonus, value: fiveBonus,
-      title: 'Bonus five of a kind', worth: '100 each, up to 3'
-    }} />
-    <${Control} ...${{
       maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance,
       title: 'Chance', worth: 'add up all dice'
+    }} />
+    <${Control} ...${{
+      maxValue: 300, incrementValue: 100, setValue: setFiveBonus, value: fiveBonus,
+      title: 'Bonus five of a kind', worth: '100 each, up to 3'
     }} />
 
     <${Sum} value=${lowerTotal}>Lower section total<//>

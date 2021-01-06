@@ -52,6 +52,27 @@ h1, h2 {
   align-items: center;
 }
 
+.grid-row-count {
+  display: grid;
+  grid-template-columns: auto 15rem;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.grid-row-count .buttons {
+  text-align: right;
+}
+
+.grid-row-count .buttons button {
+  --pad: 3px;
+  background: none;
+  padding-right: var(--pad);
+  padding-left: var(--pad);
+  outline: none;
+  border: none;
+  font-size: 1.05rem;
+}
+
 .grid-sum {
   display: grid;
   grid-template-columns: auto calc(50px * 5);
