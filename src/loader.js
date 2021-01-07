@@ -26,7 +26,7 @@ const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incremen
   };
 
   return html`
-    <div class="line grid-row-count">
+    <div class="line grid-row">
       <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <span class=buttons>
@@ -43,7 +43,7 @@ const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul })
   const multiplier = Number(_mul) || 1;
 
   return html`
-    <div class="line grid-row-count">
+    <div class="line grid-row">
       <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <span class=buttons>
@@ -63,7 +63,7 @@ const BooleanControl = ({ title, worth, increment: _inc, value, setValue }) => {
   const increment = Number(_inc) || 1;
 
   return html`
-    <div class="line grid-row-count">
+    <div class="line grid-row">
       <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${value === null ? '__' : value} </span>
       <span class=buttons>

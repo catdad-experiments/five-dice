@@ -45,25 +45,17 @@ h1, h2, .center {
 }
 
 .grid-row {
-  --size: 45px;
-  display: grid;
-  grid-template-columns: auto var(--size) var(--size) var(--size) var(--size) var(--size);
-  grid-gap: 10px;
-  align-items: center;
-}
-
-.grid-row-count {
   display: grid;
   grid-template-columns: auto 2rem 200px;
   grid-gap: 10px;
   align-items: center;
 }
 
-.grid-row-count .buttons {
+.grid-row .buttons {
   text-align: center;
 }
 
-.grid-row-count .buttons button {
+.grid-row .buttons button {
   --pad: 3px;
   background: none;
   padding-right: var(--pad);
