@@ -26,16 +26,22 @@ html, body {
   max-width: 700px;
 }
 
-body {
-  padding: 0 0.8rem;
-}
-
-h1 {
+h1, h2 {
   text-align: center;
 }
 
 .line {
-  margin: 8px 0;
+  padding: 6px 6px;
+}
+
+.line:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+@media only screen and (min-width: 700px) {
+  .line {
+    border-radius: 3px;
+  }
 }
 
 .grid-row {
@@ -43,6 +49,28 @@ h1 {
   display: grid;
   grid-template-columns: auto var(--size) var(--size) var(--size) var(--size) var(--size);
   grid-gap: 10px;
+  align-items: center;
+}
+
+.grid-row-count {
+  display: grid;
+  grid-template-columns: auto 15rem;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.grid-row-count .buttons {
+  text-align: right;
+}
+
+.grid-row-count .buttons button {
+  --pad: 3px;
+  background: none;
+  padding-right: var(--pad);
+  padding-left: var(--pad);
+  outline: none;
+  border: none;
+  font-size: 1.05rem;
 }
 
 .grid-sum {
