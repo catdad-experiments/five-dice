@@ -26,6 +26,10 @@ html, body {
   max-width: 700px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1, h2, .center {
   text-align: center;
 }
@@ -46,7 +50,7 @@ h1, h2, .center {
 
 .grid-row {
   display: grid;
-  grid-template-columns: auto 2rem 200px;
+  grid-template-columns: auto 2rem calc(30px * 7);
   grid-gap: 10px;
   align-items: center;
 }
@@ -55,11 +59,12 @@ h1, h2, .center {
   text-align: center;
 }
 
-.grid-row .buttons button {
-  --pad: 3px;
+.grid-row .buttons button,
+.grid-row .buttons .filler {
+  display: inline-block;
+  width: 30px;
+  padding: 0;
   background: none;
-  padding-right: var(--pad);
-  padding-left: var(--pad);
   outline: none;
   border: none;
   font-size: 1.05rem;
