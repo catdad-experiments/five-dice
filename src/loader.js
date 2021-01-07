@@ -45,8 +45,8 @@ const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul })
         <span class=title>${title}</span>
         <span class=worth>${worth || ' '}</span>
       </span>
+      <span class=value> ${_val === null ? '__' : _val} </span>
       <span class=buttons>
-        <span class=value> ${_val === null ? '__' : _val} </span>
         <button onclick=${() => setValue(1 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(2 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(3 * multiplier)}>🎲</button>
