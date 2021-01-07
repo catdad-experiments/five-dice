@@ -1,6 +1,13 @@
 import { html, render, useState } from './preact.js';
 import initService from './init-service.js';
 
+const ControlText = ({ title, worth }) => html`
+  <span class=info>
+    <span class=title>${title}</span>
+    <span class=worth>${worth || ' '}</span>
+  </span>
+`;
+
 const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
   const value = _val || 0;
   const increment = Number(_inc) || 1;
@@ -23,10 +30,7 @@ const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incremen
 
   return html`
     <div class="line grid-row">
-      <span class=info>
-        <span class=title>${title}</span>
-        <span class=worth>${worth || ' '}</span>
-      </span>
+      <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <button onclick=${onLess}>${'<'}</button>
       <button onclick=${onMore}>${'>'}</button>
@@ -41,10 +45,7 @@ const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul })
 
   return html`
     <div class="line grid-row-count">
-      <span class=info>
-        <span class=title>${title}</span>
-        <span class=worth>${worth || ' '}</span>
-      </span>
+      <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${_val === null ? '__' : _val} </span>
       <span class=buttons>
         <button onclick=${() => setValue(1 * multiplier)}>🎲</button>
@@ -52,6 +53,22 @@ const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul })
         <button onclick=${() => setValue(3 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(4 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(5 * multiplier)}>🎲</button>
+        <button onclick=${() => setValue(0)}>⭕</button>
+        <button onclick=${() => setValue(null)}>❌</button>
+      </span>
+    </div>
+  `;
+};
+
+const BooleanControl = ({ title, worth, increment: _inc, value, setValue }) => {
+  const increment = Number(_inc) || 1;
+
+  return html`
+    <div class="line grid-row-count">
+      <${ControlText} title=${title} worth=${worth}/>
+      <span class=value> ${value === null ? '__' : value} </span>
+      <span class=buttons>
+        <button onclick=${() => setValue(increment)}>✅</button>
         <button onclick=${() => setValue(0)}>⭕</button>
         <button onclick=${() => setValue(null)}>❌</button>
       </span>
@@ -134,20 +151,20 @@ const App = () => {
       maxValue: 5 * 6, incrementValue: 1, setValue: setFourKind, value: fourKind,
       title: 'Four of a kind', worth: 'add up all dice'
     }} />
-    <${Control} ...${{
-      maxValue: 25, incrementValue: 25, setValue: setFullHouse, value: fullHouse,
+    <${BooleanControl} ...${{
+      increment: 25, setValue: setFullHouse, value: fullHouse,
       title: 'Full house (2 of one, 3 of another)', worth: '25'
     }} />
-    <${Control} ...${{
-      maxValue: 30, incrementValue: 30, setValue: setSmall, value: small,
+    <${BooleanControl} ...${{
+      increment: 30, setValue: setSmall, value: small,
       title: 'Small straight (4 in a row)', worth: '30'
     }} />
-    <${Control} ...${{
-      maxValue: 40, incrementValue: 40, setValue: setLarge, value: large,
+    <${BooleanControl} ...${{
+      increment: 40, setValue: setLarge, value: large,
       title: 'Large straight (5 in a row)', worth: '40'
     }} />
-    <${Control} ...${{
-      maxValue: 50, incrementValue: 50, setValue: setFiveKind, value: fiveKind,
+    <${BooleanControl} ...${{
+      increment: 50, setValue: setFiveKind, value: fiveKind,
       title: 'Five of a kind', worth: '50'
     }} />
     <${Control} ...${{

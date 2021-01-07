@@ -54,13 +54,13 @@ h1, h2, .center {
 
 .grid-row-count {
   display: grid;
-  grid-template-columns: auto 2rem 12rem;
+  grid-template-columns: auto 2rem 200px;
   grid-gap: 10px;
   align-items: center;
 }
 
 .grid-row-count .buttons {
-  text-align: right;
+  text-align: center;
 }
 
 .grid-row-count .buttons button {
