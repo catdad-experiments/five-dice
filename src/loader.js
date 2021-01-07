@@ -85,6 +85,14 @@ const App = () => {
   const lowerTotal = [threeKind, fourKind, fullHouse, small, large, fiveKind, fiveBonus, chance].reduce((a, b) => (a || 0) + (b || 0));
   const grandTotal = upperTotal + upperBonus + lowerTotal;
 
+  const reset = () => {
+    [
+      setOnes, setTwos, setThrees, setFours, setFives, setSixes,
+      setThreeKind, setFourKind, setFullHouse, setSmall, setLarge,
+      setFiveKind, setFiveBonus, setChance
+    ].forEach(f => f(null));
+  };
+
   return html`
     <h1>🎲🎲🎲🎲🎲</h1>
 
@@ -154,6 +162,9 @@ const App = () => {
     <${Sum} value=${lowerTotal}>Lower section total<//>
     <p>
       <${Sum} value=${grandTotal}><b>Grand total</b><//>
+    </p>
+    <p class=center>
+      <button onclick=${reset}>Reset Game</button>
     </p>
   `;
 };
