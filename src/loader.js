@@ -8,7 +8,7 @@ const ControlText = ({ title, worth }) => html`
   </span>
 `;
 
-const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incrementValue: _inc }) => {
+const Control = ({ title, worth, value: _val, setValue, maxValue: _max, increment: _inc }) => {
   const value = _val || 0;
   const increment = Number(_inc) || 1;
   const max = Number(_max) || Infinity;
@@ -25,17 +25,16 @@ const Control = ({ title, worth, value: _val, setValue, maxValue: _max, incremen
     }
   };
 
-  const onZero = () => setValue(0);
-  const onClear = () => setValue(null);
-
   return html`
-    <div class="line grid-row">
+    <div class="line grid-row-count">
       <${ControlText} title=${title} worth=${worth}/>
       <span class=value> ${_val === null ? '__' : _val} </span>
-      <button onclick=${onLess}>${'<'}</button>
-      <button onclick=${onMore}>${'>'}</button>
-      <button onclick=${onZero}>0</button>
-      <button onclick=${onClear}>Clear</button>
+      <span class=buttons>
+        <button onclick=${onLess}>◀</button>
+        <button onclick=${onMore}>▶</button>
+        <button onclick=${() => setValue(0)}>⭕</button>
+        <button onclick=${() => setValue(null)}>❌</button>
+      </span>
     </div>
   `;
 };
@@ -117,7 +116,7 @@ const App = () => {
     <${CountControl} ...${{
       multiplier: 1, value: ones, setValue: setOnes,
       title: 'Ones', worth: 'add up all ⚀ dice'
-    }}maxValue=${5 * 1} incrementValue=1 setValue=${setOnes} value=${ones} />
+    }} />
     <${CountControl} ...${{
       multiplier: 2, value: twos, setValue: setTwos,
       title: 'Twos', worth: 'add up all ⚁ dice'
@@ -144,11 +143,11 @@ const App = () => {
 
     <h2>Lower section</h2>
     <${Control} ...${{
-      maxValue: 5 * 6, incrementValue: 1, setValue: setThreeKind, value: threeKind,
+      maxValue: 5 * 6, increment: 1, setValue: setThreeKind, value: threeKind,
       title: 'Three of a kind', worth: 'add up all dice'
     }} />
     <${Control} ...${{
-      maxValue: 5 * 6, incrementValue: 1, setValue: setFourKind, value: fourKind,
+      maxValue: 5 * 6, increment: 1, setValue: setFourKind, value: fourKind,
       title: 'Four of a kind', worth: 'add up all dice'
     }} />
     <${BooleanControl} ...${{
@@ -168,11 +167,11 @@ const App = () => {
       title: 'Five of a kind', worth: '50'
     }} />
     <${Control} ...${{
-      maxValue: 5 * 6, incrementValue: 1, setValue: setChance, value: chance,
+      maxValue: 5 * 6, increment: 1, setValue: setChance, value: chance,
       title: 'Chance', worth: 'add up all dice'
     }} />
     <${Control} ...${{
-      maxValue: 300, incrementValue: 100, setValue: setFiveBonus, value: fiveBonus,
+      maxValue: 300, increment: 100, setValue: setFiveBonus, value: fiveBonus,
       title: 'Bonus five of a kind', worth: '100 each, up to 3'
     }} />
 
