@@ -1,6 +1,22 @@
 import { html, render, useState } from './preact.js';
 import initService from './init-service.js';
 
+const useLocalStorageState = (name, initial) => {
+  const key = `five-dice/${name}`;
+  const [value, setValue] = useState(initial);
+  let stored = value;
+
+  if (initial === value) {
+    stored = Number(localStorage.getItem(key)) || initial;
+  }
+
+  return [stored, val => {
+    localStorage.setItem(key, val);
+    setValue(undefined);
+    setValue(val);
+  }];
+};
+
 const ControlText = ({ title, worth }) => html`
   <span class=info>
     <span class=title>${title}</span>
@@ -81,12 +97,12 @@ const Sum = ({ children, value }) => html`
 `;
 
 const App = () => {
-  const [ ones, setOnes ] = useState(null);
-  const [ twos, setTwos ] = useState(null);
-  const [ threes, setThrees ] = useState(null);
-  const [ fours, setFours ] = useState(null);
-  const [ fives, setFives ] = useState(null);
-  const [ sixes, setSixes ] = useState(null);
+  const [ ones, setOnes ] = useLocalStorageState(1, null);
+  const [ twos, setTwos ] = useLocalStorageState(2, null);
+  const [ threes, setThrees ] = useLocalStorageState(3, null);
+  const [ fours, setFours ] = useLocalStorageState(4, null);
+  const [ fives, setFives ] = useLocalStorageState(5, null);
+  const [ sixes, setSixes ] = useLocalStorageState(6, null);
 
   const [ threeKind, setThreeKind ] = useState(null);
   const [ fourKind, setFourKind ] = useState(null);
