@@ -45,8 +45,8 @@ const CountControl = ({ title, worth, value: _val, setValue, multiplier: _mul })
         <span class=title>${title}</span>
         <span class=worth>${worth || ' '}</span>
       </span>
+      <span class=value> ${_val === null ? '__' : _val} </span>
       <span class=buttons>
-        <span class=value> ${_val === null ? '__' : _val} </span>
         <button onclick=${() => setValue(1 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(2 * multiplier)}>🎲</button>
         <button onclick=${() => setValue(3 * multiplier)}>🎲</button>
@@ -84,6 +84,14 @@ const App = () => {
   const upperBonus = upperTotal >= 63 ? 35 : 0;
   const lowerTotal = [threeKind, fourKind, fullHouse, small, large, fiveKind, fiveBonus, chance].reduce((a, b) => (a || 0) + (b || 0));
   const grandTotal = upperTotal + upperBonus + lowerTotal;
+
+  const reset = () => {
+    [
+      setOnes, setTwos, setThrees, setFours, setFives, setSixes,
+      setThreeKind, setFourKind, setFullHouse, setSmall, setLarge,
+      setFiveKind, setFiveBonus, setChance
+    ].forEach(f => f(null));
+  };
 
   return html`
     <h1>🎲🎲🎲🎲🎲</h1>
@@ -154,6 +162,9 @@ const App = () => {
     <${Sum} value=${lowerTotal}>Lower section total<//>
     <p>
       <${Sum} value=${grandTotal}><b>Grand total</b><//>
+    </p>
+    <p class=center>
+      <button onclick=${reset}>Reset Game</button>
     </p>
   `;
 };
