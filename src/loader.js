@@ -11,8 +11,16 @@ const useLocalStorageState = (name, initial) => {
   }
 
   return [stored, val => {
-    localStorage.setItem(key, val);
-    setValue(undefined);
+    if (val === initial) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, val);
+    }
+
+    if (val === value && val !== stored) {
+      setValue(undefined);
+    }
+
     setValue(val);
   }];
 };
