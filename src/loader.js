@@ -68,7 +68,7 @@ const BooleanControl = ({ title, worth, increment: _inc, value, setValue }) => {
       <span class=value> ${value === null ? '__' : value} </span>
       <span class=buttons>
         <span class=filler></span>
-        <button onclick=${() => setValue(increment)}>✅</button>
+        <button onclick=${() => setValue(increment)}>✔</button>
         <button onclick=${() => setValue(0)}>⭕</button>
         <button onclick=${() => setValue(null)}>❌</button>
       </span>
