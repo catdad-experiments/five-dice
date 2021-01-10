@@ -112,14 +112,14 @@ const App = () => {
   const [ fives, setFives ] = useLocalStorageState(5, null);
   const [ sixes, setSixes ] = useLocalStorageState(6, null);
 
-  const [ threeKind, setThreeKind ] = useState(null);
-  const [ fourKind, setFourKind ] = useState(null);
-  const [ fullHouse, setFullHouse ] = useState(null);
-  const [ small, setSmall ] = useState(null);
-  const [ large, setLarge ] = useState(null);
-  const [ fiveKind, setFiveKind ] = useState(null);
-  const [ fiveBonus, setFiveBonus ] = useState(null);
-  const [ chance, setChance ] = useState(null);
+  const [ threeKind, setThreeKind ] = useLocalStorageState('three-kind', null);
+  const [ fourKind, setFourKind ] = useLocalStorageState('four-kind', null);
+  const [ fullHouse, setFullHouse ] = useLocalStorageState('full-house', null);
+  const [ small, setSmall ] = useLocalStorageState('small', null);
+  const [ large, setLarge ] = useLocalStorageState('large', null);
+  const [ fiveKind, setFiveKind ] = useLocalStorageState('five-kind', null);
+  const [ fiveBonus, setFiveBonus ] = useLocalStorageState('five-bonus', null);
+  const [ chance, setChance ] = useLocalStorageState('chance', null);
 
   const upperTotal = [ones, twos, threes, fours, fives, sixes].reduce((a, b) => (a || 0) + (b || 0));
   const upperBonus = upperTotal >= 63 ? 35 : 0;
