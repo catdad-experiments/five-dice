@@ -26,6 +26,10 @@ html, body {
   max-width: 700px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1, h2, .center {
   text-align: center;
 }
@@ -45,29 +49,23 @@ h1, h2, .center {
 }
 
 .grid-row {
-  --size: 45px;
   display: grid;
-  grid-template-columns: auto var(--size) var(--size) var(--size) var(--size) var(--size);
+  grid-template-columns: auto 2rem calc(30px * 7);
   grid-gap: 10px;
   align-items: center;
 }
 
-.grid-row-count {
-  display: grid;
-  grid-template-columns: auto 2rem 12rem;
-  grid-gap: 10px;
-  align-items: center;
+.grid-row .buttons {
+  text-align: center;
 }
 
-.grid-row-count .buttons {
-  text-align: right;
-}
-
-.grid-row-count .buttons button {
-  --pad: 3px;
+.grid-row .buttons button,
+.grid-row .buttons .filler {
+  color: var(--foreground);
+  display: inline-block;
+  width: 30px;
+  padding: 0;
   background: none;
-  padding-right: var(--pad);
-  padding-left: var(--pad);
   outline: none;
   border: none;
   font-size: 1.05rem;
