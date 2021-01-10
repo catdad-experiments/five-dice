@@ -1,29 +1,6 @@
-import { html, render, useState } from './preact.js';
+import { html, render } from './preact.js';
 import initService from './init-service.js';
-
-const useLocalStorageState = (name, initial) => {
-  const key = `five-dice/${name}`;
-  const [value, setValue] = useState(initial);
-  let stored = value;
-
-  if (initial === value) {
-    stored = Number(localStorage.getItem(key)) || initial;
-  }
-
-  return [stored, val => {
-    if (val === initial) {
-      localStorage.removeItem(key);
-    } else {
-      localStorage.setItem(key, val);
-    }
-
-    if (val === value && val !== stored) {
-      setValue(undefined);
-    }
-
-    setValue(val);
-  }];
-};
+import { useLocalStorageState } from './use-localstorage-state.js';
 
 const ControlText = ({ title, worth }) => html`
   <span class=info>
