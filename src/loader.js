@@ -1,5 +1,6 @@
-import { html, render, useState } from './preact.js';
+import { html, render } from './preact.js';
 import initService from './init-service.js';
+import { useLocalStorageState } from './use-localstorage-state.js';
 
 const ControlText = ({ title, worth }) => html`
   <span class=info>
@@ -81,21 +82,21 @@ const Sum = ({ children, value }) => html`
 `;
 
 const App = () => {
-  const [ ones, setOnes ] = useState(null);
-  const [ twos, setTwos ] = useState(null);
-  const [ threes, setThrees ] = useState(null);
-  const [ fours, setFours ] = useState(null);
-  const [ fives, setFives ] = useState(null);
-  const [ sixes, setSixes ] = useState(null);
+  const [ ones, setOnes ] = useLocalStorageState(1, null);
+  const [ twos, setTwos ] = useLocalStorageState(2, null);
+  const [ threes, setThrees ] = useLocalStorageState(3, null);
+  const [ fours, setFours ] = useLocalStorageState(4, null);
+  const [ fives, setFives ] = useLocalStorageState(5, null);
+  const [ sixes, setSixes ] = useLocalStorageState(6, null);
 
-  const [ threeKind, setThreeKind ] = useState(null);
-  const [ fourKind, setFourKind ] = useState(null);
-  const [ fullHouse, setFullHouse ] = useState(null);
-  const [ small, setSmall ] = useState(null);
-  const [ large, setLarge ] = useState(null);
-  const [ fiveKind, setFiveKind ] = useState(null);
-  const [ fiveBonus, setFiveBonus ] = useState(null);
-  const [ chance, setChance ] = useState(null);
+  const [ threeKind, setThreeKind ] = useLocalStorageState('three-kind', null);
+  const [ fourKind, setFourKind ] = useLocalStorageState('four-kind', null);
+  const [ fullHouse, setFullHouse ] = useLocalStorageState('full-house', null);
+  const [ small, setSmall ] = useLocalStorageState('small', null);
+  const [ large, setLarge ] = useLocalStorageState('large', null);
+  const [ fiveKind, setFiveKind ] = useLocalStorageState('five-kind', null);
+  const [ fiveBonus, setFiveBonus ] = useLocalStorageState('five-bonus', null);
+  const [ chance, setChance ] = useLocalStorageState('chance', null);
 
   const upperTotal = [ones, twos, threes, fours, fives, sixes].reduce((a, b) => (a || 0) + (b || 0));
   const upperBonus = upperTotal >= 63 ? 35 : 0;
