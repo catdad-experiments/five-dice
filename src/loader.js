@@ -2,6 +2,8 @@ import { html, render } from './preact.js';
 import initService from './init-service.js';
 import { useLocalStorageState } from './use-localstorage-state.js';
 
+const sum = (...values) => values.reduce((a, b) => a + (Number(b) || 0), 0);
+
 const ControlText = ({ title, worth }) => html`
   <span class=info>
     <span class=title>${title}</span>
@@ -98,10 +100,10 @@ const App = () => {
   const [ fiveBonus, setFiveBonus ] = useLocalStorageState('five-bonus', null);
   const [ chance, setChance ] = useLocalStorageState('chance', null);
 
-  const upperTotal = [ones, twos, threes, fours, fives, sixes].reduce((a, b) => (a || 0) + (b || 0));
+  const upperTotal = sum(ones, twos, threes, fours, fives, sixes);
   const upperBonus = upperTotal >= 63 ? 35 : 0;
-  const lowerTotal = [threeKind, fourKind, fullHouse, small, large, fiveKind, fiveBonus, chance].reduce((a, b) => (a || 0) + (b || 0));
-  const grandTotal = upperTotal + upperBonus + lowerTotal;
+  const lowerTotal = sum(threeKind, fourKind, fullHouse, small, large, fiveKind, fiveBonus, chance);
+  const grandTotal = sum(upperTotal, upperBonus, lowerTotal);
 
   const reset = () => {
     [
